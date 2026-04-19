@@ -1,0 +1,13 @@
+services:
+  # Telegram Bot Service
+  - type: worker
+    name: telegram-whoami-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+        description: "Your Telegram Bot Token from @BotFather"
